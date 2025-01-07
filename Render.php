@@ -65,7 +65,7 @@ switch($action) {
 
 $content = ob_get_clean();
 
-$template = new Template("template");
+$template = new Template("Template");
 $template->setLayout("main");
 $template->setContent($content);
 

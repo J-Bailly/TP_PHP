@@ -7,10 +7,7 @@
 </head>
 <body>
     <header>
-        <ul>
-            <li>Test</li>
-            <li>Test</li>
-        </ul>
+        Voici mon header.
     </header>
     <main>
         <?php echo $content ?? null ?>
