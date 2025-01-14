@@ -26,31 +26,6 @@ foreach($form as $field) {
     $questions[] = (new $className($field['name'], $field['required']));
 }
 
-// $content = ob_get_clean();
-
-// die();
-
-// $text = new Text('myinput', false, 'coucou');
-// echo $text->render().PHP_EOL;
-
-// $checkbox = new Checkbox('mycheckbox', true);
-// echo $checkbox->render().PHP_EOL;
-
-// $hidden = new Hidden('myhidden');
-// echo $hidden->render().PHP_EOL;
-
-// echo new Text('mytexttostring').PHP_EOL;
-
-// echo new Textarea('mytextarea', true, 'default value').PHP_EOL;
-
-// echo new Label('mylabel', true, "1. Quelle est la réponse ultime ?").PHP_EOL;
-
-// echo new Label('mylabel', true, "2. Quelle est la couleur du cheval blanc d'Henri IV ?").PHP_EOL;
-
-// echo new Label('mylabel', true, "3. Quelles sont les couleurs du drapeau français ?").PHP_EOL;
-
-
-
 $action = $_REQUEST['action'] ?? false;
 
 ob_start();
