@@ -3,6 +3,7 @@
 <?php 
 foreach($questions as $question): ?>
     <p><?php echo $question->render();?></p>
-    <?php endforeach; ?>
+<?php endforeach; ?>
 <input type="submit" value="valider">
 </form>
+

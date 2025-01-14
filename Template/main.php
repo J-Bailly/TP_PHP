@@ -10,7 +10,8 @@
         Voici mon header.
     </header>
     <main>
-        <?php echo $content ?? null ?>
+        <?php 
+        echo $content ?? null ?>
     </main>
     <footer>
         Voici mon footer.

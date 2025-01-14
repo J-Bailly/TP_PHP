@@ -2,6 +2,10 @@
 declare(strict_types=1);
 require 'Classes/Autoloader.php';
 
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 Autoloader::register();
 
 use tools\type\Text;
@@ -15,15 +19,14 @@ use View\Template;
 $loader = new DataLoaderJson("Data/model.json");
 $form = $loader->getData();
 
+// ob_start();
 
 $questions = [];
-
-// ob_start();
 
 foreach($form as $field) {
     $className = 'tools\\type\\'.ucfirst($field['type']);
     // echo new $className($field['name'], $field['required']).PHP_EOL;
-    $questions[] = (new $className($field['name'], $field['required']));
+    $questions[] = (new $className($field['name'], $field['required'], $field['value']));
 }
 
 // $content = ob_get_clean();
