@@ -7,7 +7,7 @@ DROP TABLE IF EXISTS Utilisateur;
 
 -- Table pour les utilisateurs
 CREATE TABLE Utilisateur (
-    id TEXT PRIMARY KEY,
+    id TEXT PRIMARY KEY AUTOINCREMENT,
     mot_de_passe TEXT NOT NULL,
     score INTEGER DEFAULT 0
 );

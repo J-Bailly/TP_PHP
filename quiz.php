@@ -1,3 +1,5 @@
+<?php require("Template/main.php"); ?>
+
 <?php
 try {
     // Inclure le fichier de configuration pour la connexion PDO
@@ -11,7 +13,7 @@ try {
     $type_question_id = $_POST['type_question'] ?? $types[0]['id']; // Par défaut, le premier type de question
 
     // Récupérer les questions pour le type sélectionné, sans afficher la bonne réponse
-    $stmt = $pdo->prepare("SELECT id, question, reponse_1, reponse_2, reponse_3 
+    $stmt = $pdo->prepare("SELECT id, question, type_question_id, reponse_1, reponse_2, reponse_3, reponse_correcte
                            FROM Questions 
                            WHERE type_question_id = :type_question_id");
     $stmt->execute(['type_question_id' => $type_question_id]);
@@ -56,15 +58,21 @@ try {
                     <!-- Afficher la question -->
                     <strong><?= htmlspecialchars($question['question']) ?></strong><br>
                     
-                    <!-- Afficher les options de réponse -->
-                    <?php if (!empty($question['reponse_1'])): ?>
-                        <input type="radio" name="answers[<?= $question['id'] ?>]" value="A" required> <?= htmlspecialchars($question['reponse_1']) ?><br>
-                    <?php endif; ?>
-                    <?php if (!empty($question['reponse_2'])): ?>
-                        <input type="radio" name="answers[<?= $question['id'] ?>]" value="B"> <?= htmlspecialchars($question['reponse_2']) ?><br>
-                    <?php endif; ?>
-                    <?php if (!empty($question['reponse_3'])): ?>
-                        <input type="radio" name="answers[<?= $question['id'] ?>]" value="C"> <?= htmlspecialchars($question['reponse_3']) ?><br>
+                    <!-- Pour les questions de type "Écriture" -->
+                    <?php if ($question['type_question_id'] == 1): ?>
+                        <label for="answer_<?= $question['id'] ?>">Votre réponse :</label>
+                        <input type="text" name="answers[<?= $question['id'] ?>]" id="answer_<?= $question['id'] ?>" required><br>
+                    <?php else: ?>
+                        <!-- Afficher les options de réponse pour les autres types (QCM, Vrai/Faux) -->
+                        <?php if (!empty($question['reponse_1'])): ?>
+                            <input type="radio" name="answers[<?= $question['id'] ?>]" value="A" required> <?= htmlspecialchars($question['reponse_1']) ?><br>
+                        <?php endif; ?>
+                        <?php if (!empty($question['reponse_2'])): ?>
+                            <input type="radio" name="answers[<?= $question['id'] ?>]" value="B"> <?= htmlspecialchars($question['reponse_2']) ?><br>
+                        <?php endif; ?>
+                        <?php if (!empty($question['reponse_3'])): ?>
+                            <input type="radio" name="answers[<?= $question['id'] ?>]" value="C"> <?= htmlspecialchars($question['reponse_3']) ?><br>
+                        <?php endif; ?>
                     <?php endif; ?>
                 </p>
             <?php endforeach; ?>
@@ -83,3 +91,5 @@ try {
     </form>
 </body>
 </html>
+
+
