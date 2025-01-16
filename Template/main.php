@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Poney Club Grand Galop</title>
+    <title>Quiz de Culture Général</title>
     <link rel="stylesheet" href="../css/styles.css">
 </head>
 
@@ -18,7 +18,7 @@
             // Vérifie si l'utilisateur est connecté
             $is_logged_in = isset($_SESSION['user_id']);
             ?>
-            <a href="quiz.php">Faire le Quiz</a> <!-- Accessible seulement si l'utilisateur est connecté -->
+            <a href="typeQuestion.php">Faire le Quiz</a> <!-- Accessible seulement si l'utilisateur est connecté -->
             <a href="classement.php">Score</a>
         </nav>
         <div>
@@ -30,10 +30,6 @@
             <?php endif; ?>
         </div>
     </header>
-
-    <main>
-        <?= $content ?>
-    </main>
     <div class="footer">
         <p>&copy; 2025 Grand Quiz Culture Générale | Tous droits réservés | Contactez-nous pour plus d'informations.</p>
     </div>

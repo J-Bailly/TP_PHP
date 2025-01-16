@@ -4,7 +4,9 @@ body {
     padding: 0;
     background-color: #fcfaee;
     color: #333;
+    
 }
+
 header {
     display: flex;
     justify-content: space-between;
@@ -12,6 +14,7 @@ header {
     background-color: #A5B68D;
     padding: 20px;
 }
+
 .inverser {
     transform: scaleX(-1);
 }

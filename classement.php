@@ -1,3 +1,4 @@
+<?php require("Template/main.php") ?>    
 <?php
 require('Data/bd.php');
 
@@ -15,17 +16,10 @@ try {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Classement des Scores</title>
+    <title>Quiz</title>
     <link rel="stylesheet" href="../css/styles.css">
 </head>
 <body>
-    <header>
-        <nav class="navigation">
-            <a href="index.php">Accueil</a>
-            <a href="quiz.php">Faire le Quiz</a>
-            <a href="classement.php">Classement</a>
-        </nav>
-    </header>
     <main>
         <h1>Classement des Utilisateurs</h1>
         <table class="classement-table">
@@ -53,8 +47,5 @@ try {
             </tbody>
         </table>
     </main>
-    <footer>
-        <p>&copy; 2025 Quiz App | Tous droits réservés</p>
-    </footer>
 </body>
 </html>

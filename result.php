@@ -1,3 +1,4 @@
+<?php require("Template/main.php"); ?>
 <?php
 try {
     require('Data/bd.php'); // Connexion à la base de données via $pdo
@@ -9,19 +10,24 @@ try {
 
         foreach ($answers as $question_id => $user_answer) {
             // Récupérer la bonne réponse et le type de question
-            $stmt = $pdo->prepare("SELECT type_question_id, reponse_correcte FROM questions WHERE id = :question_id");
+            $stmt = $pdo->prepare("SELECT type_question_id, question, reponse_correcte FROM questions WHERE id = :question_id");
             $stmt->bindValue(':question_id', $question_id, PDO::PARAM_INT);
             $stmt->execute();
             $question = $stmt->fetch(PDO::FETCH_ASSOC);
 
+            // Afficher pour déboguer les valeurs de réponse
+            echo "<p>Question :" . $question['question'] . "</p>";
+            echo "<p>Réponse utilisateur : '$user_answer'</p>";
+            echo "<p>Réponse correcte : '" . $question['reponse_correcte'] . "'</p>";
+
             // Vérification de la réponse
             if ($question['type_question_id'] == 1) { // Écriture
                 // Comparer les réponses en ignorant la casse
-                if (strtolower(trim($user_answer)) == strtolower($question['reponse_correcte'])) {
+                if (strtolower(trim($user_answer)) == strtolower(trim($question['reponse_correcte']))) {
                     $score++;
                 }
             } else { // Pour les autres types (QCM, Vrai/Faux)
-                if (strtolower(trim($user_answer)) == strtolower($question['reponse_correcte'])) {
+                if (strtolower(trim($user_answer)) == strtolower(trim($question['reponse_correcte']))) {
                     $score++;
                 }
             }
@@ -43,7 +49,6 @@ try {
             $update_stmt->execute();
         } else {
             // Si l'utilisateur n'existe pas, l'ajouter avec son score
-            // L'ID de l'utilisateur est maintenant son nom (texte), donc pas d'incrémentation ici
             $insert_stmt = $pdo->prepare("INSERT INTO Utilisateur (id, mot_de_passe, score) VALUES (:user_name, :password, :score)");
             $insert_stmt->bindValue(':user_name', $user_name, PDO::PARAM_STR);
             $insert_stmt->bindValue(':password', 'defaultpassword', PDO::PARAM_STR); // Mot de passe par défaut, à personnaliser si nécessaire
