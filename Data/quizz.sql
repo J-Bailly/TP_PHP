@@ -1,13 +1,15 @@
--- Si vous voulez nettoyer la base avant, vous pouvez ajouter les DROP TABLE :
+-- Nettoyer la base de données existante
 DROP TABLE IF EXISTS Questions;
 DROP TABLE IF EXISTS Quiz;
 DROP TABLE IF EXISTS Categories;
 DROP TABLE IF EXISTS Admin;
 DROP TABLE IF EXISTS Utilisateur;
+drop table if exists TypeQuestion;
 
 -- Table pour les utilisateurs
 CREATE TABLE Utilisateur (
-    id TEXT PRIMARY KEY AUTOINCREMENT,
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    pseudonyme TEXT NOT NULL,
     mot_de_passe TEXT NOT NULL,
     score INTEGER DEFAULT 0
 );
@@ -72,9 +74,9 @@ INSERT INTO Quiz (titre, categorie_id) VALUES
 ('Langages de Programmation', 3); -- Catégorie : Informatique
 
 -- Insérer des utilisateurs
-INSERT INTO Utilisateur (id, mot_de_passe, score) VALUES 
-('user1', 'password123', 10),
-('user2', 'mypassword', 20);
+INSERT INTO Utilisateur (pseudonyme, mot_de_passe, score) VALUES 
+('UserOne', 'password123', 10),
+('UserTwo', 'mypassword', 20);
 
 -- Insérer des administrateurs
 INSERT INTO Admin (id, mot_de_passe) VALUES 
