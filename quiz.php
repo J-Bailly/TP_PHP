@@ -1,3 +1,4 @@
+<?php require("Template/main.php"); ?>
 <?php
 require 'config.php';
 include 'nav.php';
@@ -19,7 +20,7 @@ $quizList = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Liste des Quiz</title>
+    <title>Liste des Quiz - <?= htmlspecialchars($type_question['type_question']) ?></title>
 </head>
 <body>
     <?php renderNav(); ?>

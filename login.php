@@ -1,3 +1,4 @@
+<?php require("Template/main.php"); ?>
 <?php
 require 'config.php';
 include 'nav.php';
