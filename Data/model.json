@@ -1,28 +1,32 @@
 [
     {
-        "type": "text",
+        "type": "Text",
         "name": "mytext",
-        "required": false
+        "required": false,
+        "value":""
     },
     {
-        "type": "hidden",
+        "type": "Hidden",
         "name": "hiddenfield",
-        "required": false
+        "required": false,
+        "value":""
     },
     {
-        "type": "textarea",
+        "type": "Textarea",
         "name": "mytextarea",
-        "required": true
+        "required": true,
+        "value":""
     },
     {
-        "type": "checkbox",
+        "type": "Checkbox",
         "name": "mycheckbox",
         "required": false,
-        "value": true
+        "value":"true"
     },
     {
-        "type": "label",
+        "type": "Label",
         "name": "mylabel",
-        "required": true
+        "required": true,
+        "value":"aa"
     }
 ]
