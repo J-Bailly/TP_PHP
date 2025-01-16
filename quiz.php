@@ -12,7 +12,7 @@ if (!isset($_SESSION['user_id'])) {
 }
 
 $stmt = $pdo->query("SELECT Quiz.id, Quiz.titre, Categories.nom AS categorie 
-                     FROM Quiz 
+                     FROM Quiz
                      LEFT JOIN Categories ON Quiz.categorie_id = Categories.id");
 $quizList = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
@@ -23,7 +23,8 @@ $quizList = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <title>Liste des Quiz - <?= htmlspecialchars($type_question['type_question']) ?></title>
 </head>
 <body>
-    <?php renderNav(); ?>
+    
+   
 
     <h2>Liste des Quiz</h2>
     <ul>

@@ -1,4 +1,4 @@
-<?php require("Template/main.php"); ?>
+
 <?php
 require 'config.php';
 include 'nav.php';
@@ -33,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <title>Connexion</title>
 </head>
 <body>
-    <?php renderNav(); ?>
+   
     <h2>Connexion</h2>
     <form method="post">
         <label>Pseudonyme: <input type="text" name="pseudonyme" required></label><br>

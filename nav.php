@@ -9,6 +9,7 @@ function renderNav() {
         echo "
         <nav>
             <a href='quiz.php'>Quizz</a> |
+            <a href='classement.php'>Classement</a> |
             <span>Bonjour, $pseudonyme (Score : $score)</span> |
             <a href='logout.php'>Déconnexion</a>
         </nav>
@@ -18,6 +19,7 @@ function renderNav() {
         echo "
         <nav>
             <a href='quiz.php'>Quizz</a> |
+            <a href='classement.php'>Classement</a> |
             <a href='login.php'>Connexion</a> |
             <a href='register.php'>Inscription</a>
         </nav>

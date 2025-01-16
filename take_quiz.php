@@ -50,7 +50,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <title>Quiz</title>
 </head>
 <body>
-    <?php renderNav(); ?>
+    <
 
     <h2>Quiz</h2>
     <form method="post">

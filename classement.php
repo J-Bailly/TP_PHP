@@ -1,10 +1,10 @@
-<?php require("Template/main.php") ?>    
+<?php require("Template/main.php") ?>
 <?php
 require('Data/bd.php');
 
 try {
     // Requête pour récupérer les utilisateurs triés par score décroissant
-    $stmt = $pdo->query("SELECT id, score FROM Utilisateur ORDER BY score DESC");
+    $stmt = $pdo->query("SELECT pseudonyme, score FROM Utilisateur ORDER BY score DESC");
     $classement = $stmt->fetchAll(PDO::FETCH_ASSOC);
 } catch (PDOException $e) {
     die("Erreur : " . $e->getMessage());
@@ -35,7 +35,7 @@ try {
                     <?php foreach ($classement as $index => $user): ?>
                         <tr>
                             <td><?= $index + 1 ?></td>
-                            <td><?= htmlspecialchars($user['id']) ?></td>
+                            <td><?= htmlspecialchars($user['pseudonyme']) ?></td>
                             <td><?= htmlspecialchars($user['score']) ?></td>
                         </tr>
                     <?php endforeach; ?>

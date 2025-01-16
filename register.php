@@ -32,7 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <title>Inscription</title>
 </head>
 <body>
-    <?php renderNav(); ?>
+    
     <h2>Inscription</h2>
     <form method="post">
         <label>Pseudonyme: <input type="text" name="pseudonyme" required></label><br>
